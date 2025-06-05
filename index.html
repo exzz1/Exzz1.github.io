@@ -1,175 +1,883 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Favicon Link -->
-    <link rel="icon" href="/favicon.jpeg" type="image/x-icon">
-        <style>
-        
-
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,800,300);
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans','Helvetica Neue',Helvetica, sans-serif;
-    line-height: 1.45;
-}
-header {
-    color: #FFFFFF;
-    background-color: #284b63;
-    padding: 80px 0;
-    text-align: center;
-}
-h1 {
-  font-size: 48px;
-  margin: 0 0 16px 0;
-}
-h2 {
-  font-weight: 300;
-  font-size: 24px;
-  margin: 0 0 16px 0;
-}
-.container {
-    margin: 0 auto;
-    padding: 0 20px 0 20px;
-    max-width: 900px;
-}
-.btn {
-    display: inline-block;
-    color: white;
-    font-weight: 500;
-    font-size: 20px;
-    background: #549DA0;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 16px;
-    cursor: pointer;
-}
-.btn:hover {
-    background: red;
-}
-section {
-    text-align: center;
-    padding: 40px 0;
-}
-.features {
-    background: #FFFFFF;
-    color: #000000;
-}
-.feature {
-    width: 32%;
-    display: inline-block;
-    font-size:16px;
-}
-.feature img {
-    width: 40%;
-}
-.quote {
-    background:#549DA0;
-    color:#FFFFFF;
-}
-blockquote {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-blockquote p {
-    margin: 0 0 5px 0;
-    font-size: 24px;
-}
-blockquote cite {
-    font-size: 16px;
-    font-style: italic;
-}  
-blockquote cite:before {
-    content: '–';
-    margin-right: 5px;
-}
-footer {
-    background: #353535;
-    padding: 32px 0;
-    text-align: center;
-    color: #868686;
-
-.qr-code {
-    width: 300px; /* Adjust as necessary */
-    height: 300px; /* Adjust as necessary */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.qr-code {
-    width: 100%;
-    height: auto; /* Keeps the aspect ratio */
-}
-    .responsive-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EXZZ CRYPTO INVESTMENT</title>
+  <style>
+    :root {
+      --primary: #1db954;
+      --accent: #00ffe7;
+      --dark-bg: #121212;
+      --card-bg: #1f1f1f;
+      --marquee-bg: #181f2b;
+      --marquee-height: 3.4rem;
     }
-    
-    </style>
-    <link rel="stylsheet" href="style.css"></link>
-        <title>EXZZ Crypto Investment</title>
-    </head>
-    <body>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--dark-bg);
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      background: linear-gradient(90deg, var(--primary) 0%, #0e223a 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px #1db95433;
+      border-radius: 0 0 18px 18px;
+      z-index: 9999;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.3s;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 1.3rem;
+      padding: 1.5rem 2rem 0.5rem 2rem;
+      width: 100%;
+      justify-content: center;
+    }
+    .logo {
+      height: 3.2rem;
+      width: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff2;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px #0e223a44;
+      flex-shrink: 0;
+    }
+    .logo svg {
+      height: 2.1rem;
+      width: 2.1rem;
+      display: block;
+    }
+    .site-title {
+      font-size: 2.1rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #fff 40%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0;
+      padding: 0;
+      text-shadow: 0 2px 10px #0005;
+    }
+    .tagline {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #e0ffe0;
+      margin: 0.2rem 0 1.2rem 0;
+      letter-spacing: 1px;
+      text-align: center;
+      text-shadow: 0 1px 4px #0003;
+    }
+    #marquee-wrap {
+      position: fixed;
+      top: 9rem;
+      left: 0;
+      width: 100vw;
+      background: var(--marquee-bg);
+      box-shadow: 0 0 10px #1db95422;
+      border-radius: 0 0 10px 10px;
+      height: var(--marquee-height);
+      z-index: 9998;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid #1db95455;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+    }
+    #marquee {
+      display: inline-block;
+      white-space: nowrap;
+      will-change: transform;
+      padding-left: 100vw;
+      animation: marquee 600s linear infinite;
+      font-size: 1.5rem;
+      height: var(--marquee-height);
+      line-height: var(--marquee-height);
+      transition: animation-play-state 0.2s;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    #marquee-wrap:hover #marquee,
+    #marquee:focus {
+      animation-play-state: paused;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    #marquee span {
+      display: inline-block;
+      min-width: 210px;
+      text-align: center;
+      margin-right: 3rem;
+      font-weight: bold;
+      vertical-align: middle;
+      padding: 0 0.7rem;
+      background: rgba(34,40,60,0.5);
+      border-radius: 6px;
+      box-shadow: 0 2px 8px #1db95422;
+    }
+    .arrow-up {
+      color: #4caf50;
+      margin-left: 0.3em;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+    .arrow-down {
+      color: #e53935;
+      margin-left: 0.3em;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+    .price-up {
+      color: #4caf50;
+    }
+    .price-down {
+      color: #e53935;
+    }
+    #marquee img {
+      height: 1.5em;
+      width: 1.5em;
+      vertical-align: middle;
+      margin-right: 0.5em;
+      border-radius: 50%;
+      background: #222;
+      box-shadow: 0 0 2px #1db95466;
+    }
+    .header-marquee-spacer {
+      height: 12.6rem;
+      width: 100%;
+    }
+    section, .dashboard-card, .contact-card {
+      background: var(--card-bg);
+      padding: 1.5rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 0 15px #1db95455;
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 2rem;
+      margin-left: auto;
+      margin-right: auto;
+      transition: box-shadow 0.2s;
+    }
+    section:hover, .dashboard-card:hover, .contact-card:hover {
+      box-shadow: 0 0 32px #00ffe755;
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+    select, input {
+      flex: 1 1 150px;
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      border: none;
+      background: #292929;
+      color: #eee;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px #0e223a44;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    select:focus, input:focus {
+      outline: 2px solid var(--primary);
+      background-color: #222;
+      box-shadow: 0 0 8px var(--primary);
+    }
+    button {
+      background: var(--primary);
+      border: none;
+      color: #121212;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.15rem;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 16px #1db95455;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    button:disabled {
+      background-color: #3a7d44;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    button:hover:not(:disabled) {
+      background-color: var(--accent);
+      color: #222;
+      box-shadow: 0 6px 18px #00ffe755;
+    }
+    #walletAddressDisplay {
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+      font-family: monospace;
+      font-size: 1.1rem;
+      background: #222;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      user-select: all;
+      color: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+      transition: background-color 0.3s;
+    }
+    #walletAddressDisplay:hover {
+      background-color: #1b3d1b;
+    }
+    #status {
+      font-weight: 700;
+      min-height: 1.5rem;
+      margin-top: 0.5rem;
+      white-space: pre-wrap;
+      text-align: center;
+    }
+    #status.error {
+      color: #e53935;
+    }
+    #status.success {
+      color: #4caf50;
+    }
+    /* Modal styles */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    #modal .modal-content {
+      background: #222;
+      color: #eee;
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      max-width: 95vw;
+      min-width: 300px;
+      text-align: center;
+      box-shadow: 0 0 20px #1db95499;
+      position: relative;
+    }
+    #modal .close {
+      position: absolute;
+      top: 0.7rem;
+      right: 1.2rem;
+      font-size: 2rem;
+      color: #1db954;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #modal .loader {
+      margin: 1.2rem auto;
+      border: 8px solid #292929;
+      border-top: 8px solid #1db954;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .wallet-links {
+      margin:1.5rem 0 0.7rem 0;
+    }
+    .wallet-links a {
+      display:inline-block;
+      background:#fff;
+      border-radius:8px;
+      padding:0.5rem 1rem;
+      font-weight:600;
+      color:#222;
+      text-decoration:none;
+      box-shadow:0 2px 8px #1db95444;
+      margin: 0 0.3rem 0.7rem 0.3rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .wallet-links a:hover {
+      background: #1db954;
+      color: #fff;
+    }
+    #qrcode img {
+      margin-top:0.5rem;
+      border-radius:10px;
+      background:#fff;
+      padding:6px;
+      box-shadow:0 2px 10px #1db95433;
+    }
+    /* Dashboard and contact card styles with animated effect */
+    .dashboard-card, .contact-card {
+      display: none;
+      margin-top: 2rem;
+      text-align: center;
+      max-width: 400px;
+      width: 90vw;
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 0.7s cubic-bezier(.4,1.4,.6,1), transform 0.7s cubic-bezier(.4,1.4,.6,1);
+    }
+    .dashboard-card.active, .contact-card.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+      animation: dashboardPop 1s cubic-bezier(.4,1.4,.6,1);
+    }
+    @keyframes dashboardPop {
+      0% { opacity: 0; transform: translateY(40px) scale(0.98);}
+      60% { opacity: 1; transform: translateY(-10px) scale(1.04);}
+      80% { opacity: 1; transform: translateY(2px) scale(0.99);}
+      100% { opacity: 1; transform: translateY(0) scale(1);}
+    }
+    .dashboard-card h2, .contact-card h2 {
+      color: #1db954;
+      margin-bottom: 1.5rem;
+    }
+    .dashboard-card .amount {
+      font-size: 2.3rem;
+      font-weight: bold;
+      color: #00ffe7;
+      margin: 1.3rem 0 0.7rem 0;
+      letter-spacing: 2px;
+    }
+    .dashboard-card .success, .contact-card .success {
+      color: #4caf50;
+      margin-top: 1rem;
+    }
+    .dashboard-card a, .contact-card a {
+      color: #1db954;
+      text-decoration: underline;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    /* Footer styles */
+    footer {
+      width: 100vw;
+      background: linear-gradient(90deg, #181f2b 0%, #1db954 100%);
+      color: #fff;
+      padding: 2.2rem 0 1.2rem 0;
+      margin-top: auto;
+      border-radius: 18px 18px 0 0;
+      box-shadow: 0 -2px 16px #1db95444;
+    }
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+    }
+    .footer-title {
+      background: linear-gradient(90deg, #fff 40%, #1db954 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 2px 10px #0005;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      opacity: 0.9;
+    }
+    .footer-links a:hover {
+      color: #00ffe7;
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .footer-copy {
+      font-size: 0.98rem;
+      color: #e0ffe0;
+      opacity: 0.85;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 600px) {
+      .footer-content { padding: 0 0.5rem; }
+      .footer-links { gap: 1rem; }
+      .footer-brand { font-size: 1rem; }
+      .footer-logo svg { width: 22px; height: 22px; }
+    }
+    @media (max-width: 900px) {
+      section, .dashboard-card, .contact-card { max-width: 97vw; }
+      #marquee { font-size: 1.2rem; }
+      #marquee span { min-width: 170px; }
+    }
+    @media (max-width: 600px) {
+      .header-content {
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 1rem 0.2rem 0.2rem 0.2rem;
+      }
+      .logo {
+        height: 2.3rem;
+        width: 2.3rem;
+      }
+      .logo svg {
+        height: 1.3rem;
+        width: 1.3rem;
+      }
+      .site-title {
+        font-size: 1.2rem;
+      }
+      .tagline {
+        font-size: 0.95rem;
+      }
+      .header-marquee-spacer {
+        height: 11.2rem;
+      }
+      #marquee-wrap { height: 4.2rem; }
+      #marquee { font-size: 1.1rem; line-height: 4.2rem;}
+      .flex-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      select, input, button {
+        flex: 1 1 100%;
+        margin: 0;
+      }
+      section, .dashboard-card, .contact-card { padding: 1.1rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo" aria-label="EXZZ Crypto Logo">
+        <svg viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="22" fill="#1db954" stroke="#fff" stroke-width="2"/>
+          <path d="M24 13L34 34H14L24 13Z" fill="#fff"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="site-title">EXZZ CRYPTO INVESTMENT</h1>
+      </div>
+    </div>
+    <div class="tagline">Your Trusted Gateway to Digital Assets</div>
+  </header>
+  <div id="marquee-wrap" tabindex="0" aria-label="Live crypto price ticker (pause on hover)">
+    <div id="marquee">Loading prices...</div>
+  </div>
+  <div class="header-marquee-spacer"></div>
 
-    <header>
-        <div class="container">
-        <h1>EXZZ CRYPTO INVESTMENT WEBSITE</h1>
-        <h2>This is a cryptocurrency investment website to start your crypto journey!</h2>
-        <h3>SCAN THE USDT TRC 20 BAR CODE OR COPY THE WALLET ADDRESS BELOW TO MAKE DEPOSIT!</h3>
-        </div>
-    </header>
-        <section class="features">
-        <div class="container">
-  <img src="paid.jpg" alt="Responsive square image" class="responsive-image" />
-</div>
-        
-            <div class="container">
-                <h1>USDT TRC 20 Wallet Address</h1>
-            <H6>TS7fPCsSb1HXtrtxWG5HESfgSTa2Yh4Fhk</H6>
-            </div>
-        </section>
-    
-    <section class="features">
-        <div class="container">
-        <div class="feature">
-            <img src="https://www.sololearn.com/uploads/img_blue_pin.png" alt=""/>
-            <p>EXZZ Crypto investment is FREEDOM from centralization & custodial accounts which are not!</p>
-        </div>
-        <div class="feature">
-            <img src="https://www.sololearn.com/uploads/img_blue_chart.png" alt=""/>
-            <p>EXZZ Crypto investment is FREEDOM!  #1 website that has you covered decentrally & privately!</p>
-        </div>
-        <div class="feature">
-            <img src="https://www.sololearn.com/uploads/img_blue_msg.png" alt=""/>
-            <p>EXZZ Crypto investment is active for any enquiry. We care about your concerns. We are always here for you. </p>
-        </div>
-        </div>
-    </section>
+  <section id="trade">
+    <h2>Start your investment journey</h2>
+    <div class="flex-row">
+      <label for="tradeCrypto">Crypto:</label>
+      <select id="tradeCrypto" aria-label="Select cryptocurrency">
+        <option value="eth">Ethereum (ETH)</option>
+        <option value="btc">Bitcoin (BTC)</option>
+        <option value="usdt">Tether (USDT)</option>
+      </select>
+    </div>
+    <div id="walletAddressDisplay" title="Deposit Wallet Address" aria-live="polite" aria-atomic="true"></div>
+    <div class="flex-row">
+      <label for="tradeAmount">Amount (USD):</label>
+      <input type="number" id="tradeAmount" min="1" step="any" placeholder="100" aria-label="Enter amount in USD" />
+    </div>
+    <button id="tradeBtn" aria-label="Invest">Invest</button>
+    <div id="status" role="alert" aria-live="polite"></div>
+  </section>
 
-    <section class="quote">
-        <blockquote class="container">
-      <p>"You honestly can't find better information at your fingertips that isnt like all the rest of the competitors!"</p>
-      <cite>SPENCER WEALTH MGT., LLC
-      </cite>
-    </blockquote>
-    </section>
-    
-    <footer>
-    All Rights Rserved.<p>
-    exzz.blockchain</p>
-    </footer>
+  <!-- Integrated Dashboard (hidden by default) -->
+  <div class="dashboard-card" id="dashboardCard">
+    <h2 id="dashboardTitle">No deposit yet</h2>
+    <div class="amount" id="depositedAmount"></div>
+    <div class="success" id="dashboardThankYou" style="display:none;">
+      Thank you for your investment.<br>
+      <a href="#" id="backToHome">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- Contact Card (hidden by default) -->
+  <div class="contact-card" id="contactCard">
+    <h2>Contact Us</h2>
+    <div style="margin-bottom:1.5rem;">
+      <p>Email: <a href="mailto:support@exzzcrypto.com">support@exzzcrypto.com</a></p>
+      <p>Telegram: <a href="https://t.me/exzzcrypto" target="_blank">@exzzcrypto</a></p>
+      <p>Twitter: <a href="https://twitter.com/exzzcrypto" target="_blank">@exzzcrypto</a></p>
+    </div>
+    <div class="success">
+      <a href="#" id="backToHomeContact">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- Modal for deposit detection and wallet deep links -->
+  <div id="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h3>Transfer Funds to Start Investing</h3>
+      <div>
+        Send funds to:<br>
+        <span id="modalWallet" style="font-family:monospace;font-size:1.08em;color:#1db954;"></span>
+      </div>
+      <div class="wallet-links">
+        <a id="metaLink" target="_blank" rel="noopener">MetaMask</a>
+        <a id="trustLink" target="_blank" rel="noopener">Trust Wallet</a>
+        <a id="coinbaseLink" target="_blank" rel="noopener">Coinbase Wallet</a>
+      </div>
+      <div id="qrcode"></div>
+      <div class="loader"></div>
+      <div id="modalStatus" style="margin-top:1rem;color:#1db954;"></div>
+      <div style="font-size:0.9rem;color:#ccc;margin-top:1rem;">After sending, your deposit will be detected automatically.<br>This may take a few minutes depending on network speed.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-logo">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+            <circle cx="16" cy="16" r="15" fill="#1db954" stroke="#fff" stroke-width="2"/>
+            <path d="M16 7L23 25H9L16 7Z" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="footer-title">EXZZ CRYPTO INVESTMENT</span>
+      </div>
+      <div class="footer-links">
+        <a href="#" id="homeLinkFooter">Home</a>
+        <a href="#" id="dashboardLinkFooter">Dashboard</a>
+        <a href="#" id="contactLinkFooter">Contact</a>
+        <a href="#">Privacy</a>
+      </div>
+      <div class="footer-copy">
+        &copy; <span id="footerYear"></span> EXZZ Crypto Investment. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // --- CONFIGURATION ---
+  const MORALIS_API_KEY = 'testApiKey';
+  const depositAddresses = {
+    eth: '0x1111111111111111111111111111111111111111',
+    btc: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh',
+    usdt: '0x2222222222222222222222222222222222222222'
+  };
+
+  // --- UI ELEMENTS ---
+  const tradeCrypto = document.getElementById('tradeCrypto');
+  const walletAddressDisplay = document.getElementById('walletAddressDisplay');
+  const tradeBtn = document.getElementById('tradeBtn');
+  const tradeAmount = document.getElementById('tradeAmount');
+  const statusDiv = document.getElementById('status');
+  const marquee = document.getElementById('marquee');
+  const modal = document.getElementById('modal');
+  const closeModal = document.getElementById('closeModal');
+  const modalWallet = document.getElementById('modalWallet');
+  const modalStatus = document.getElementById('modalStatus');
+  const metaLink = document.getElementById('metaLink');
+  const trustLink = document.getElementById('trustLink');
+  const coinbaseLink = document.getElementById('coinbaseLink');
+  const qrcodeDiv = document.getElementById('qrcode');
+  const dashboardCard = document.getElementById('dashboardCard');
+  const depositedAmountDiv = document.getElementById('depositedAmount');
+  const backToHome = document.getElementById('backToHome');
+  const dashboardLinkFooter = document.getElementById('dashboardLinkFooter');
+  const dashboardTitle = document.getElementById('dashboardTitle');
+  const dashboardThankYou = document.getElementById('dashboardThankYou');
+  const contactCard = document.getElementById('contactCard');
+  const contactLinkFooter = document.getElementById('contactLinkFooter');
+  const backToHomeContact = document.getElementById('backToHomeContact');
+  const homeLinkFooter = document.getElementById('homeLinkFooter');
+
+  function updateWalletAddressDisplay() {
+    const selectedCrypto = tradeCrypto.value;
+    const address = depositAddresses[selectedCrypto] || '';
+    walletAddressDisplay.textContent = address ? `Deposit Wallet Address: ${address}` : '';
+  }
+  updateWalletAddressDisplay();
+  tradeCrypto.addEventListener('change', updateWalletAddressDisplay);
+
+  // --- MARQUEE ---
+  async function fetchMarquee() {
+    try {
+      const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&price_change_percentage=24h';
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      let html = '';
+      data.forEach(coin => {
+        const price = coin.current_price?.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 8}) || '--';
+        const change = coin.price_change_percentage_24h;
+        const isUp = change >= 0;
+        const arrow = isUp
+          ? '<span class="arrow-up" title="Up">&#9650;</span>'
+          : '<span class="arrow-down" title="Down">&#9660;</span>';
+        const changeClass = isUp ? 'price-up' : 'price-down';
+        html += `<span>
+          <img src="${coin.image}" alt="${coin.symbol}" />
+          ${coin.symbol.toUpperCase()}: $${price}
+          <span class="${changeClass}">${change ? change.toFixed(2) : '0.00'}%</span>
+          ${arrow}
+        </span>`;
+      });
+      marquee.innerHTML = html + html;
+    } catch (e) {
+      marquee.textContent = 'Unable to load prices.';
+    }
+  }
+  fetchMarquee();
+  setInterval(fetchMarquee, 60000);
+
+  // --- QR code generator using Google Charts API ---
+  function setQRCode(address) {
+    qrcodeDiv.innerHTML = `<img src="https://chart.googleapis.com/chart?cht=qr&chs=160x160&chl=${encodeURIComponent(address)}" alt="QR Code" />`;
+  }
+
+  // Helper: get current crypto price in USD from CoinGecko
+  async function getCryptoPrice(crypto) {
+    let id = crypto === 'eth' ? 'ethereum' : crypto === 'btc' ? 'bitcoin' : 'tether';
+    try {
+      let res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${id}&vs_currencies=usd`);
+      let data = await res.json();
+      return data[id].usd;
+    } catch {
+      return null;
+    }
+  }
+
+  // Update wallet links and QR code in modal
+  async function updateWalletLinks(address, crypto, amountUSD) {
+    let amountCrypto = '';
+    let price = await getCryptoPrice(crypto);
+    if (price && amountUSD && !isNaN(amountUSD)) {
+      amountCrypto = (parseFloat(amountUSD) / price).toFixed(6).replace(/\.?0+$/, '');
+    }
+    if (crypto === 'eth') {
+      let value = amountCrypto ? '&value=' + (parseFloat(amountCrypto) * 1e18).toFixed(0) : '';
+      metaLink.href = `https://metamask.app.link/send/${address}?${value ? value : ''}`;
+      trustLink.href = `https://link.trustwallet.com/send?coin=60&address=${address}${amountCrypto ? '&amount=' + amountCrypto : ''}`;
+      coinbaseLink.href = `ethereum:${address}${amountCrypto ? '?value=' + amountCrypto : ''}`;
+    } else if (crypto === 'usdt') {
+      const contract = '0xdac17f958d2ee523a2206206994597c13d831ec7';
+      metaLink.href = `https://metamask.app.link/send/${contract}?address=${address}${amountCrypto ? '&uint256=' + (parseFloat(amountCrypto) * 1e6).toFixed(0) : ''}`;
+      trustLink.href = `https://link.trustwallet.com/send?coin=60&token=${contract}&to=${address}${amountCrypto ? '&amount=' + amountCrypto : ''}`;
+      coinbaseLink.href = `ethereum:${address}${amountCrypto ? '?value=' + amountCrypto : ''}`;
+    } else if (crypto === 'btc') {
+      metaLink.href = `bitcoin:${address}${amountCrypto ? '?amount=' + amountCrypto : ''}`;
+      trustLink.href = `https://link.trustwallet.com/send?coin=0&address=${address}${amountCrypto ? '&amount=' + amountCrypto : ''}`;
+      coinbaseLink.href = `bitcoin:${address}${amountCrypto ? '?amount=' + amountCrypto : ''}`;
+    }
+    setQRCode(address);
+  }
+
+  // --- MODAL HANDLING ---
+  closeModal.onclick = () => {
+    modal.style.display = "none";
+    if (window.depositPoller) clearInterval(window.depositPoller);
+  };
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      if (window.depositPoller) clearInterval(window.depositPoller);
+    }
+  };
+
+  // --- DEPOSIT POLLING ---
+  tradeBtn.onclick = async () => {
+    statusDiv.textContent = '';
+    statusDiv.className = '';
+    const crypto = tradeCrypto.value;
+    const amountUSD = parseFloat(tradeAmount.value);
+
+    if (!crypto) {
+      statusDiv.textContent = 'Please select a cryptocurrency.';
+      statusDiv.className = 'error';
+      return;
+    }
+    if (isNaN(amountUSD) || amountUSD <= 0) {
+      statusDiv.textContent = 'Please enter a valid amount.';
+      statusDiv.className = 'error';
+      return;
+    }
+    const walletAddress = depositAddresses[crypto];
+    if (!walletAddress) {
+      statusDiv.textContent = 'Deposit address not configured for selected crypto.';
+      statusDiv.className = 'error';
+      return;
+    }
+
+    // Show modal and start polling
+    modal.style.display = "flex";
+    modalWallet.textContent = walletAddress;
+    await updateWalletLinks(walletAddress, crypto, amountUSD);
+    modalStatus.textContent = "Waiting for deposit...";
+
+    // Save initial balance/tx count
+    let getBalance, parseAmount;
+    if (crypto === 'eth' || crypto === 'usdt') {
+      getBalance = async () => {
+        if (crypto === 'usdt') {
+          const url = `https://deep-index.moralis.io/api/v2.2/${walletAddress}/erc20?chain=eth`;
+          const res = await fetch(url, { headers: { "X-API-Key": MORALIS_API_KEY } });
+          const data = await res.json();
+          const usdt = data.find(t => t.symbol && t.symbol.toLowerCase() === 'usdt');
+          return usdt ? Number(usdt.balance) / (10 ** usdt.decimals) : 0;
+        } else {
+          const url = `https://deep-index.moralis.io/api/v2.2/${walletAddress}/balance?chain=eth`;
+          const res = await fetch(url, { headers: { "X-API-Key": MORALIS_API_KEY } });
+          const data = await res.json();
+          return Number(data.balance) / 1e18;
+        }
+      };
+      parseAmount = amt => amt + (crypto === 'usdt' ? " USDT" : " ETH");
+    } else if (crypto === 'btc') {
+      getBalance = async () => {
+        const url = `https://deep-index.moralis.io/api/v2.2/${walletAddress}/balance?chain=btc`;
+        const res = await fetch(url, { headers: { "X-API-Key": MORALIS_API_KEY } });
+        const data = await res.json();
+        return Number(data.balance) / 1e8;
+      };
+      parseAmount = amt => amt + " BTC";
+    }
+
+    let initial = await getBalance();
+    window.depositPoller = setInterval(async () => {
+      let current = await getBalance();
+      if (current > initial) {
+        clearInterval(window.depositPoller);
+        modalStatus.textContent = "Deposit detected!";
+        setTimeout(() => {
+          modal.style.display = "none";
+          showDashboard(current - initial, crypto);
+        }, 1200);
+      } else {
+        modalStatus.textContent = "Still waiting for deposit...";
+      }
+    }, 15000); // Poll every 15 seconds
+
+    statusDiv.textContent = `Waiting for your deposit to be detected...`;
+    statusDiv.className = 'success';
+  };
+
+  // --- DASHBOARD LOGIC ---
+  function showDashboard(amount, crypto) {
+    document.getElementById('trade').style.display = 'none';
+    dashboardCard.classList.add('active');
+    contactCard.classList.remove('active');
+    if (amount && amount > 0) {
+      dashboardTitle.textContent = "Deposit Received!";
+      depositedAmountDiv.textContent = `${parseFloat(amount).toFixed(6)} ${crypto.toUpperCase()}`;
+      dashboardThankYou.style.display = '';
+    } else {
+      dashboardTitle.textContent = "No deposit yet";
+      depositedAmountDiv.textContent = "";
+      dashboardThankYou.style.display = 'none';
+    }
+    window.scrollTo({ top: dashboardCard.offsetTop - 50, behavior: 'smooth' });
+  }
+  backToHome.onclick = function(e) {
+    e.preventDefault();
+    dashboardCard.classList.remove('active');
+    document.getElementById('trade').style.display = '';
+    depositedAmountDiv.textContent = '';
+    tradeAmount.value = '';
+    statusDiv.textContent = '';
+    statusDiv.className = '';
+    updateWalletAddressDisplay();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // --- CONTACT LOGIC ---
+  contactLinkFooter.onclick = function(e) {
+    e.preventDefault();
+    document.getElementById('trade').style.display = 'none';
+    dashboardCard.classList.remove('active');
+    contactCard.classList.add('active');
+    window.scrollTo({ top: contactCard.offsetTop - 50, behavior: 'smooth' });
+  };
+  backToHomeContact.onclick = function(e) {
+    e.preventDefault();
+    contactCard.classList.remove('active');
+    document.getElementById('trade').style.display = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Footer dashboard link: always show dashboard, but only show deposit info if there is a deposit
+  dashboardLinkFooter.onclick = function(e) {
+    e.preventDefault();
+    document.getElementById('trade').style.display = 'none';
+    contactCard.classList.remove('active');
+    dashboardCard.classList.add('active');
+    if (depositedAmountDiv.textContent && depositedAmountDiv.textContent !== "" && depositedAmountDiv.textContent !== "No deposit yet") {
+      dashboardTitle.textContent = "Deposit Received!";
+      dashboardThankYou.style.display = '';
+    } else {
+      dashboardTitle.textContent = "No deposit yet";
+      depositedAmountDiv.textContent = "";
+      dashboardThankYou.style.display = 'none';
+    }
+    window.scrollTo({ top: dashboardCard.offsetTop - 50, behavior: 'smooth' });
+  };
+
+  // Footer home link
+  homeLinkFooter.onclick = function(e) {
+    e.preventDefault();
+    dashboardCard.classList.remove('active');
+    contactCard.classList.remove('active');
+    document.getElementById('trade').style.display = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Footer year
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
